@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 import java.util.Arrays;
-public class SelectionSort {
+public class SelectionSort2 {
     // Selection Sort
     public static void main(String []args){
         // Creating Scanner Object for taking Inputs from the USER
@@ -26,10 +26,10 @@ public class SelectionSort {
     // Method of Selection Sort
     static void selectionSort(int [] arr){
         for(int i=0; i<arr.length; i++){
-            // Find the Maximum Index in the Remaining array and Swap with its correct index
-            int last = arr.length - i - 1;
-            int maxIndex = getMaxIndex(arr, 0, last);
-            swap(arr, maxIndex, last);
+            // Find the Minimum Index in the Remaining array and Swap with its correct index
+            int first =  i ;
+            int minIndex = getMinIndex(arr, i, arr.length - 1);
+            swap(arr, minIndex, first);
         }
     }
 
@@ -39,12 +39,12 @@ public class SelectionSort {
         arr[b]   = temp;
     }
 
-    static int getMaxIndex(int [] arr, int start, int end){
-        int max = start;
+    static int getMinIndex(int [] arr, int start, int end){
+        int min = start;
         for(int i = start; i <= end; i++){
-            if(arr[max] < arr[i])
-                max = i;
+            if(arr[min] > arr[i])
+                min = i;
         }
-        return max;
+        return min;
     }
 }
